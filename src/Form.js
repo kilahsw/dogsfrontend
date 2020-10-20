@@ -1,13 +1,13 @@
 import React from "react";
 
-const Display = (props) => {
+const Form = (props) => {
   //STATE FOR THE FORM
-  const [formData, setFormData] = React.useEffect(props.dog);
+  const [formData, setFormData] = React.useState(props.dog);
 
   //FUNCTIONS
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent Form from Refreshing
-    props.handleSubmit(formData); // Submit to Parents desired function
+    props.handleSubmit(formData); // Submit to Parents desired function -- will create and update dogs
     props.history.push("/"); //Push back to display page
   };
 
@@ -35,9 +35,9 @@ const Display = (props) => {
         value={formData.img}
         onChange={handleChange}
       />
-      <input type="submit" value={props.label} />
+      <input type="submit" value={props.label} /> 
     </form>
   );
 };
 
-export default Display;
+export default Form;
